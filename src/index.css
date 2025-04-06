@@ -1,135 +1,204 @@
-/* 
-const initialItems = [
-  { id: 1, description: "Passports", quantity: 2, packed: false },
-  { id: 2, description: "Socks", quantity: 12, packed: false },
-];
-*/
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap");
+:root {
+  --color-bg: #f9fafb;
+  --color-surface: #ffffff;
+  --color-primary: #3b82f6;
+  --color-secondary: #10b981;
+  --color-danger: #ef4444;
+  --color-text: #1f2937;
+  --color-muted: #6b7280;
+  --radius: 0.75rem;
+  --shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
 
-@import url("https://fonts.googleapis.com/css2?family=Monoton&family=Quicksand:wght@500;700&display=swap");
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 html {
-    font-size: 62.5%;
+  font-size: 62.5%;
 }
 
 body {
-    font-size: 2.4rem;
-    font-family: sans-serif;
-    color: #5a3e2b;
-    font-family: "Quicksand";
-    font-weight: 500;
+  font-family: "Inter", sans-serif;
+  font-size: 1.6rem;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  line-height: 1.5;
 }
+
+/* Layout */
 
 .app {
-    width: 100%;
-    height: 100vh;
-    display: grid;
-    grid-template-rows: auto auto 1fr auto;
+  min-height: 100vh;
+  display: grid;
+  grid-template-rows: auto auto 1fr auto;
+  background-color: var(--color-bg);
 }
+
+/* Header */
 
 h1 {
-    text-align: center;
-    background-color: #f4a226;
-    font-family: "Monoton";
-    font-size: 8rem;
-    text-transform: uppercase;
-    font-weight: 400;
-    word-spacing: 30px;
-    letter-spacing: -10px;
-    padding: 2.4rem 0;
+  text-align: center;
+  background-color: var(--color-primary);
+  color: white;
+  font-size: 3.6rem;
+  font-weight: 600;
+  padding: 2rem 1rem;
+  border-bottom-left-radius: var(--radius);
+  border-bottom-right-radius: var(--radius);
 }
+
+/* Add Form */
 
 .add-form {
-    background-color: #e5771f;
-    padding: 2.8rem 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.8rem;
+  background-color: var(--color-surface);
+  margin: 2rem auto;
+  padding: 2rem;
+  max-width: 800px;
+  box-shadow: var(--shadow);
+  border-radius: var(--radius);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
 }
 
-h3 {
-    margin-right: 1.6rem;
-    font-size: 2.4rem;
+.add-form h3 {
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--color-muted);
 }
 
-button,
+input,
 select,
-input {
-    background-color: #d6bda3;
-    color: #c26221;
-    border: none;
-    border-radius: 10rem;
-    padding: 1.2rem 3.2rem;
-    font-weight: 700;
-    font-size: 1.8rem;
-    cursor: pointer;
+button {
+  padding: 1rem 2rem;
+  border-radius: var(--radius);
+  font-size: 1.6rem;
+  font-weight: 500;
+  border: 1px solid #d1d5db;
+  outline: none;
+  transition: 0.2s ease;
+}
+
+input:focus,
+select:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.3);
 }
 
 .add-form button {
-    text-transform: uppercase;
-    background-color: #76c7ad;
+  background-color: var(--color-secondary);
+  color: white;
+  border: none;
+  cursor: pointer;
+  text-transform: uppercase;
 }
+
+.add-form button:hover {
+  background-color: #059669;
+}
+
+/* List Section */
 
 .list {
-    background-color: #c5723b;
-    color: #ffebb3;
-    padding: 4rem 0;
-    display: flex;
-    justify-content: space-between;
-    flex-direction: column;
-    gap: 3.2rem;
-    align-items: center;
-}
-
-.actions button,
-.list select {
-    text-transform: uppercase;
-    padding: 0.8rem 2.4rem;
-    font-size: 1.4rem;
-    font-weight: 700;
-    margin: 0 0.8rem;
+  padding: 3rem 1rem;
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
 }
 
 .list ul {
-    list-style: none;
-    width: 80%;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1.2rem;
-    justify-content: center;
-    align-content: start;
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2rem;
 }
 
 .list li {
-    display: flex;
-    align-items: center;
-    gap: 1.2rem;
+  background-color: var(--color-surface);
+  padding: 1.5rem;
+  border-radius: var(--radius);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  box-shadow: var(--shadow);
 }
 
 input[type="checkbox"] {
-    height: 2rem;
-    width: 2rem;
-    accent-color: #e5771f;
+  width: 1.8rem;
+  height: 1.8rem;
+  accent-color: var(--color-primary);
 }
 
 .list li button {
-    cursor: pointer;
-    background: none;
-    border: none;
-    font-size: 1.8rem;
-    padding: 0.8rem;
-    transform: translateY(2px);
-    background-color: red;
+  background-color: var(--color-danger);
+  color: white;
+  border: none;
+  border-radius: 0.5rem;
+  padding: 0.5rem 1rem;
+  font-size: 1.4rem;
+  cursor: pointer;
 }
 
+.list li button:hover {
+  background-color: #dc2626;
+}
+
+/* Actions */
+
+.actions {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.actions button,
+.actions select {
+  background-color: var(--color-primary);
+  color: white;
+  border: none;
+  font-size: 1.4rem;
+  padding: 0.8rem 1.6rem;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.actions button:hover {
+  background-color: #2563eb;
+}
+
+/* Stats Footer */
+
 .stats {
-    background-color: #76c7ad;
-    text-align: center;
-    font-weight: 700;
-    padding: 3.2rem 0;
+  background-color: var(--color-surface);
+  text-align: center;
+  font-weight: 600;
+  padding: 2rem;
+  border-top: 1px solid #e5e7eb;
+  box-shadow: var(--shadow);
+  font-size: 1.8rem;
+}
+
+/* Responsive */
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 3rem;
+  }
+  .add-form {
+    flex-direction: column;
+  }
+  .list ul {
+    grid-template-columns: 1fr;
+  }
 }
